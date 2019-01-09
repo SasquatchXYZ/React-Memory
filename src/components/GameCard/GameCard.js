@@ -2,11 +2,11 @@ import React from 'react';
 import './GameCard.css';
 
 const GameCard = props => (
-  <div className="card">
+  <div className="card" onClick={() => props.cardClick(props.id)}>
     <div className="img-container">
       <img alt={props.name} src={props.image}/>
     </div>
-    <div className="content">
+    {/*<div className="content">
       <ul>
         <li>
           <strong>Name:</strong> {props.name}
@@ -21,7 +21,7 @@ const GameCard = props => (
     </div>
     <span onClick={() => props.removeCard(props.id)} className="remove">
       x
-    </span>
+    </span>*/}
   </div>
 );
 
