@@ -11,7 +11,8 @@ class App extends Component {
     cards,
     clickedCards: [],
     score: 0,
-    highScore: 0
+    highScore: 0,
+    message: 'Click on an Image to Begin Playing'
   };
 
   // When you click on a card... it grabs the card id
@@ -27,10 +28,26 @@ class App extends Component {
         {
           cards: this.shuffleCards(this.state.cards),
           // clickedCards: this.state.clickedCards.push(id),
-          score: this.state.score + 1
-        });
-      console.log(this.state.clickedCards);
-      console.log(this.state.score)
+          score: this.state.score + 1,
+          message: 'You Guessed Correctly!'
+        },
+        () => {
+          if (this.state.score === 12) {
+            console.log('Game Completed');
+
+            this.setState(
+              {
+                cards: this.shuffleCards(this.state.cards),
+                clickedCards: [],
+                score: 0,
+                message: 'Congratulations! You Won!'
+              }
+            )
+          }
+        }
+      );
+      // console.log(this.state.clickedCards);
+      // console.log(this.state.score)
     }
     // If you have already clicked on a card... the score is reset to 0, and the game is over/resets
     else {
@@ -39,17 +56,17 @@ class App extends Component {
         {
           cards: this.shuffleCards(this.state.cards),
           clickedCards: [],
-          score: 0
+          score: 0,
+          message: 'Incorrect!'
         }
       )
     }
-
   };
 
   shuffleCards = array => {
     let i = array.length, j, temp;
     if (i === 0) return array;
-    while ( --i ) {
+    while (--i) {
       j = Math.floor(Math.random() * (i + 1));
       temp = array[i];
       array[i] = array[j];
@@ -63,6 +80,7 @@ class App extends Component {
       <Wrapper>
         <TitleBar
           score={this.state.score}
+          message={this.state.message}
         />
         {this.shuffleCards(this.state.cards).map(card => (
           <GameCard
