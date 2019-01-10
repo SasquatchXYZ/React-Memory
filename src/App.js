@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import GameCard from './components/GameCard';
 import Wrapper from './components/Wrapper';
 import TitleBar from './components/Title';
+import CardContainer from './components/CardContainer';
 import cards from './cards';
 import './App.css';
 
@@ -21,17 +22,18 @@ class App extends Component {
 
     // If the card that has not been clicked before, it is added to the clickedCards Array.
     if (!this.state.clickedCards.includes(id)) {
-      this.state.clickedCards.push(id);
 
+      this.state.clickedCards.push(id);
       // State is Changed to update the score.
       this.setState(
         {
           cards: this.shuffleCards(this.state.cards),
-          // clickedCards: this.state.clickedCards.push(id),
           score: this.state.score + 1,
           message: 'You Guessed Correctly!'
         },
         () => {
+          // If you have reached the end of the game (all the cards have been successfully clicked, the game
+          // resets and displays a new message.
           if (this.state.score === 12) {
             console.log('Game Completed');
 
@@ -82,6 +84,7 @@ class App extends Component {
           score={this.state.score}
           message={this.state.message}
         />
+        <CardContainer>
         {this.shuffleCards(this.state.cards).map(card => (
           <GameCard
             cardClick={this.cardClick}
@@ -93,6 +96,7 @@ class App extends Component {
             location={card.location}
           />
         ))}
+        </CardContainer>
       </Wrapper>
     );
   }
