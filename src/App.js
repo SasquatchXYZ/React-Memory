@@ -13,7 +13,7 @@ class App extends Component {
     clickedCards: [],
     score: 0,
     highScore: 0,
-    message: 'Click on an Image to Begin Playing'
+    message: 'Click on a Card to begin playing; but don\'t select a Card more than once'
   };
 
   // When you click on a card... it grabs the card id
@@ -29,7 +29,7 @@ class App extends Component {
         {
           cards: this.shuffleCards(this.state.cards),
           score: this.state.score + 1,
-          message: 'You Guessed Correctly!'
+          message: 'Correct!'
         },
         () => {
           // If you have reached the end of the game (all the cards have been successfully clicked, the game
@@ -59,7 +59,7 @@ class App extends Component {
           cards: this.shuffleCards(this.state.cards),
           clickedCards: [],
           score: 0,
-          message: 'Incorrect!'
+          message: 'Incorrect! You have already selected that card...'
         }
       )
     }

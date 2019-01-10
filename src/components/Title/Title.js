@@ -3,10 +3,12 @@ import './Title.css';
 
 const TitleBar = props => (
   <div className="title-bar">
-    <h1 className="title">Gundam Memory Game</h1>
+    <div className="header">
+      <h2 className="title">Gundam-React</h2>
+      <h2 className="scoreboard">Score: <span className="score">{props.score}</span></h2>
+    </div>
     <div className="board">
       <h2 className="message-board">{props.message}</h2>
-      <h2 className="scoreboard">Score: {props.score}</h2>
     </div>
   </div>
 );
