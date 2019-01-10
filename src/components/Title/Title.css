@@ -1,11 +1,30 @@
 .title-bar {
+  /*display: flex;*/
+  /*justify-content: space-around;*/
   width: 100%;
   text-align: center;
   margin-bottom: 50px;
   border: 1px solid red;
 }
 
+.board {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
 .title {
+  font-size: 3rem;
+  text-decoration: underline;
+  color: #2A77AE;
+}
+
+.message-board {
+  font-size: 3rem;
+  text-decoration: underline;
+  color: #2A77AE;
+}
+
+.scoreboard {
   font-size: 3rem;
   text-decoration: underline;
   color: #2A77AE;
