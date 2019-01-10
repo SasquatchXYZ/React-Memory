@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import GameCard from './components/GameCard';
 import Wrapper from './components/Wrapper';
-import Title from './components/Title';
+import TitleBar from './components/Title';
 import cards from './cards';
 import './App.css';
 
@@ -25,7 +25,7 @@ class App extends Component {
       // State is Changed to update the score.
       this.setState(
         {
-          cards,
+          cards: this.shuffleCards(this.state.cards),
           // clickedCards: this.state.clickedCards.push(id),
           score: this.state.score + 1
         });
@@ -37,7 +37,7 @@ class App extends Component {
       console.log('You Already Clicked that Card...');
       this.setState(
         {
-          cards,
+          cards: this.shuffleCards(this.state.cards),
           clickedCards: [],
           score: 0
         }
@@ -46,20 +46,27 @@ class App extends Component {
 
   };
 
-  removeCard = id => {
-    const cards = this.state.cards.filter(card => card.id !== id);
-
-    this.setState({cards})
+  shuffleCards = array => {
+    let i = array.length, j, temp;
+    if (i === 0) return array;
+    while ( --i ) {
+      j = Math.floor(Math.random() * (i + 1));
+      temp = array[i];
+      array[i] = array[j];
+      array[j] = temp
+    }
+    return array
   };
 
   render() {
     return (
       <Wrapper>
-        <Title>React Memory</Title>
-        {this.state.cards.map(card => (
+        <TitleBar
+          score={this.state.score}
+        />
+        {this.shuffleCards(this.state.cards).map(card => (
           <GameCard
             cardClick={this.cardClick}
-            removeCard={this.removeCard}
             id={card.id}
             key={card.id}
             name={card.name}

@@ -1,8 +1,12 @@
-.title {
+.title-bar {
   width: 100%;
   text-align: center;
+  margin-bottom: 50px;
+  border: 1px solid red;
+}
+
+.title {
   font-size: 3rem;
   text-decoration: underline;
   color: #2A77AE;
-  margin-bottom: 50px;
 }
