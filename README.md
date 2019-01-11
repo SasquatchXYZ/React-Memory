@@ -37,7 +37,7 @@ in the root folder of the project.  This will start the application running and 
 
 ## Deployment
 
-* [Deployed Site]()
+* [Deployed Site](https://sasquatchxyz.github.io/React-Memory/)
 
 Currently this site deployed using GitHub pages.
 
