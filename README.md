@@ -3,7 +3,7 @@
 
 React-Memory is a memory game created using React, it only differs slightly from other memory games in that the objective is to NOT click the same image twice.  Rather you want to make it through all 12 cards in the deck selecting a different one each time.  Once you're score reaches 12 you win the game and the game state rests, and if you select the same image twice, you lose and the game resets.
 
-![Screenshot]()
+![Screenshot](public/gundam-react.png)
 
 ## Getting Started
 
@@ -39,7 +39,7 @@ in the root folder of the project.  This will start the application running and 
 
 * [Deployed Site]()
 
-Currently this site is only deployed using GitHub pages.
+Currently this site deployed using GitHub pages.
 
 ## Built With
 

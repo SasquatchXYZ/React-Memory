@@ -12,7 +12,6 @@ class App extends Component {
     cards,
     clickedCards: [],
     score: 0,
-    highScore: 0,
     message: 'Click on a Card to begin playing; but don\'t select a Card more than once'
   };
 
@@ -92,8 +91,6 @@ class App extends Component {
             key={card.id}
             name={card.name}
             image={card.image}
-            occupation={card.occupation}
-            location={card.location}
           />
         ))}
         </CardContainer>
